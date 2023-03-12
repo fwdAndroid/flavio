@@ -10,7 +10,7 @@ import 'package:flutter/src/widgets/framework.dart';
 class MainSubZonelPage extends StatefulWidget {
   final area;
   final name;
-  const MainSubZonelPage({super.key, this.area, this.name});
+  const MainSubZonelPage({super.key, required this.area, required this.name});
 
   @override
   State<MainSubZonelPage> createState() => _MainSubZonelPageState();

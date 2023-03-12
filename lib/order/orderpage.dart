@@ -171,7 +171,10 @@ class _OrderPageState extends State<OrderPage> {
                           Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                  builder: (builder) => MainSubZonelPage()));
+                                  builder: (builder) => MainSubZonelPage(
+                                        area: widget.area,
+                                        name: widget.name,
+                                      )));
                         },
                         child: Text("Place Order"),
                         style: ElevatedButton.styleFrom(

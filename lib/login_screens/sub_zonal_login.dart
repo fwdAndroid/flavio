@@ -150,7 +150,12 @@ class _SubZoneLoginState extends State<SubZoneLogin> {
           context, MaterialPageRoute(builder: (builder) => BlockUser()));
     } else {
       Navigator.push(
-          context, MaterialPageRoute(builder: (builder) => MainSubZonelPage()));
+          context,
+          MaterialPageRoute(
+              builder: (builder) => MainSubZonelPage(
+                    area: data['area'],
+                    name: data['name'],
+                  )));
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text("Login Complete")));
     }
