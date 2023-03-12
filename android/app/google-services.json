@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "565614114638",
+    "project_id": "crystalenterprises-8dc95",
+    "storage_bucket": "crystalenterprises-8dc95.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:565614114638:android:7b8536da5404244ea9d01f",
+        "android_client_info": {
+          "package_name": "com.example.crystal_web_admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "565614114638-mm6onsi71eotl5nlota7k928e46qeeri.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkStmggIin6MqP6WKkL8rSA63cTRy1kvY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "565614114638-mm6onsi71eotl5nlota7k928e46qeeri.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:565614114638:android:aae40d66293cd97da9d01f",
+        "android_client_info": {
+          "package_name": "com.example.flavio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "565614114638-mm6onsi71eotl5nlota7k928e46qeeri.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkStmggIin6MqP6WKkL8rSA63cTRy1kvY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "565614114638-mm6onsi71eotl5nlota7k928e46qeeri.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
