@@ -79,7 +79,8 @@ class _MainSubZonelPageState extends State<MainSubZonelPage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text("Item Name:" + snap['ItemName']),
-                                Text("Item Rate:" + snap['itemPrice']),
+                                Text("Item Rate:" +
+                                    snap['itemPrice'].toString()),
                               ],
                             ),
                             trailing: TextButton(
@@ -91,11 +92,11 @@ class _MainSubZonelPageState extends State<MainSubZonelPage> {
                                                 area: widget.area,
                                                 name: widget.name,
                                                 uuid: snap['uuid'],
-                                                itemName: snap['itemName'],
+                                                itemName: snap['ItemName'],
                                                 itemPrice: snap['itemPrice'],
                                                 // pcs: snap['pcs'],
                                                 itemQuatity:
-                                                    snap['itemQuatity'],
+                                                    snap['itemQuantity'],
                                               )));
                                 },
                                 child: Text("View")),
