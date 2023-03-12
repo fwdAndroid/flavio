@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flavio/mains_screen.dart';
+import 'package:flavio/order/product_detail.dart';
 import 'package:flavio/tabs/sub_zonal_orders_tabs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -60,7 +61,7 @@ class _MainSubZonelPageState extends State<MainSubZonelPage> {
             backgroundColor: Colors.white,
             body: StreamBuilder(
                 stream: FirebaseFirestore.instance
-                    .collection("products")
+                    .collection("inventory")
                     .snapshots(),
                 builder: (context, AsyncSnapshot snapshot) {
                   if (!snapshot.hasData) {
@@ -77,25 +78,25 @@ class _MainSubZonelPageState extends State<MainSubZonelPage> {
                             leading: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text("Product Name:" + snap['productname']),
-                                Text("Product Rate:" + snap['rate']),
+                                Text("Item Name:" + snap['ItemName']),
+                                Text("Item Rate:" + snap['itemPrice']),
                               ],
                             ),
                             trailing: TextButton(
                                 onPressed: () {
-                                  // Navigator.push(
-                                  //     context,
-                                  //     MaterialPageRoute(
-                                  //         builder: (builder) => ProductDetail(
-                                  //               area: widget.area,
-                                  //               name: widget.name,
-                                  //               uuid: snap['uuid'],
-                                  //               rate: snap['rate'],
-                                  //               dimension: snap['dimensions'],
-                                  //               // pcs: snap['pcs'],
-                                  //               productname:
-                                  //                   snap['productname'],
-                                  //             )));
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (builder) => ProductDetail(
+                                                area: widget.area,
+                                                name: widget.name,
+                                                uuid: snap['uuid'],
+                                                itemName: snap['itemName'],
+                                                itemPrice: snap['itemPrice'],
+                                                // pcs: snap['pcs'],
+                                                itemQuatity:
+                                                    snap['itemQuatity'],
+                                              )));
                                 },
                                 child: Text("View")),
                           ),
