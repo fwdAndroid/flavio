@@ -1,21 +1,17 @@
+import 'package:flavio/tab_pages/retailertab/active_retailers.dart';
+import 'package:flavio/tab_pages/retailertab/completed_retailer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:order_management/tab_pages/bsiness/activetab.dart';
-import 'package:order_management/tab_pages/bsiness/completetab.dart';
-import 'package:order_management/tab_pages/distributortab/active_distributor.dart';
-import 'package:order_management/tab_pages/distributortab/complete_distributor.dart';
-import 'package:order_management/tab_pages/retailertab/active_retailers.dart';
-import 'package:order_management/tab_pages/retailertab/completed_retailer.dart';
 
-class BusinessTab extends StatefulWidget {
-  const BusinessTab({super.key});
+class SubZonalOrderTab extends StatefulWidget {
+  const SubZonalOrderTab({super.key});
 
   @override
-  State<BusinessTab> createState() => _BusinessTabState();
+  State<SubZonalOrderTab> createState() => _SubZonalOrderTabState();
 }
 
-class _BusinessTabState extends State<BusinessTab> {
+class _SubZonalOrderTabState extends State<SubZonalOrderTab> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +42,10 @@ class _BusinessTabState extends State<BusinessTab> {
             ),
           ),
           body: TabBarView(
-            children: [Active(), Complete()],
+            children: <Widget>[
+              ActiveRetailerOrders(),
+              CompletedRetailersOrders()
+            ],
           ),
         ),
       ),

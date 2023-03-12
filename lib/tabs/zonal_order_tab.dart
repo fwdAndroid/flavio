@@ -1,23 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flavio/tab_pages/zonaltab/zonal_active_tab.dart';
+import 'package:flavio/tab_pages/zonaltab/zonal_complete_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:order_management/tab_pages/distributortab/active_distributor.dart';
-import 'package:order_management/tab_pages/distributortab/complete_distributor.dart';
-import 'package:order_management/tab_pages/regionaltab/regional_active_tab.dart';
-import 'package:order_management/tab_pages/retailertab/active_retailers.dart';
-import 'package:order_management/tab_pages/retailertab/completed_retailer.dart';
 
-import '../tab_pages/regionaltab/regional_complete_tab.dart';
-
-class RegionalrOrdersTab extends StatefulWidget {
-  const RegionalrOrdersTab({super.key});
+class ZonalOrderTab extends StatefulWidget {
+  const ZonalOrderTab({super.key});
 
   @override
-  State<RegionalrOrdersTab> createState() => _RegionalrOrdersTabState();
+  State<ZonalOrderTab> createState() => _ZonalOrderTabState();
 }
 
-class _RegionalrOrdersTabState extends State<RegionalrOrdersTab> {
+class _ZonalOrderTabState extends State<ZonalOrderTab> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,10 +44,10 @@ class _RegionalrOrdersTabState extends State<RegionalrOrdersTab> {
           ),
           body: TabBarView(
             children: [
-              RegionalActivetTab(
+              ZonalActiveTab(
                 Uuid: "",
               ),
-              RegionalCompleteTab()
+              ZonalCompleteTab()
             ],
           ),
         ),

@@ -1,21 +1,20 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flavio/main_pages/main_sub_zonal_page.dart';
+import 'package:flavio/status/blockuser.dart';
+import 'package:flavio/widgets/text_form_field_widget.dart';
+import 'package:flavio/widgets/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:order_management/mains_screen.dart';
-import 'package:order_management/pages/main_regional_page.dart';
-import 'package:order_management/status/blockuser.dart';
-import 'package:order_management/widgets/text_form_field_widget.dart';
-import 'package:order_management/widgets/utils.dart';
 
-class RegionalLogin extends StatefulWidget {
-  String regional = "Regional";
-  RegionalLogin({Key? key, required this.regional}) : super(key: key);
+class SubZoneLogin extends StatefulWidget {
+  String r = "Sub Zone Manager";
+  SubZoneLogin({Key? key, required this.r}) : super(key: key);
 
   @override
-  _RegionalLoginState createState() => _RegionalLoginState();
+  _SubZoneLoginState createState() => _SubZoneLoginState();
 }
 
-class _RegionalLoginState extends State<RegionalLogin> {
+class _SubZoneLoginState extends State<SubZoneLogin> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passController = TextEditingController();
   bool _isLoading = false;
@@ -48,11 +47,11 @@ class _RegionalLoginState extends State<RegionalLogin> {
               height: 200,
             ),
             Text(
-              "Regional Manager Login",
+              "Retailer Officer Login",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
             ),
             SizedBox(
-              height: 20,
+              height: 40,
             ),
             TextFormInputField(
               hintText: 'Enter youe email',
@@ -151,7 +150,7 @@ class _RegionalLoginState extends State<RegionalLogin> {
           context, MaterialPageRoute(builder: (builder) => BlockUser()));
     } else {
       Navigator.push(
-          context, MaterialPageRoute(builder: (builder) => MainRegionalPage()));
+          context, MaterialPageRoute(builder: (builder) => MainSubZonelPage()));
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text("Login Complete")));
     }
@@ -167,7 +166,7 @@ class _RegionalLoginState extends State<RegionalLogin> {
         snapshot.docs.forEach((element) {
           if (element['password'] == passController.text &&
               element['email'] == emailController.text &&
-              element['type'] == widget.regional) {
+              element['type'] == widget.r) {
             FirebaseAuth.instance
                 .signInWithEmailAndPassword(
               email: emailController.text,

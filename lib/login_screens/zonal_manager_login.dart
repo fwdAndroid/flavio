@@ -1,23 +1,21 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flavio/widgets/text_form_field_widget.dart';
+import 'package:flavio/widgets/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:order_management/pages/main_business_page.dart';
-import 'package:order_management/provider/circular_provider.dart';
-import 'package:order_management/status/blockuser.dart';
-import 'package:order_management/widgets/text_form_field_widget.dart';
-import 'package:order_management/widgets/utils.dart';
+
 import 'package:provider/provider.dart';
 
-class BussinessManagerLogin extends StatefulWidget {
+class ZonalManagerLogin extends StatefulWidget {
   String bussines;
-  BussinessManagerLogin({Key? key, required this.bussines}) : super(key: key);
+  ZonalManagerLogin({Key? key, required this.bussines}) : super(key: key);
 
   @override
-  _BussinessManagerLoginState createState() => _BussinessManagerLoginState();
+  _ZonalManagerLoginState createState() => _ZonalManagerLoginState();
 }
 
-class _BussinessManagerLoginState extends State<BussinessManagerLogin> {
+class _ZonalManagerLoginState extends State<ZonalManagerLogin> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passController = TextEditingController();
   bool _isLoading = false;
@@ -53,7 +51,7 @@ class _BussinessManagerLoginState extends State<BussinessManagerLogin> {
                 height: 200,
               ),
               Text(
-                "Bussiness Manager Login",
+                "Zonal Manager Login",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
               ),
               SizedBox(
@@ -151,11 +149,11 @@ class _BussinessManagerLoginState extends State<BussinessManagerLogin> {
     final isBlocked = data['blocked'];
     if (isBlocked == true) {
       // User is blocked
-      Navigator.push(
-          context, MaterialPageRoute(builder: (builder) => BlockUser()));
+      // Navigator.push(
+      //     context, MaterialPageRoute(builder: (builder) => BlockUser()));
     } else {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (builder) => MainBusinessPage()));
+      // Navigator.push(
+      //     context, MaterialPageRoute(builder: (builder) => MainBusinessPage()));
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text("Login Complete")));
     }

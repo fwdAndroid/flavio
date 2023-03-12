@@ -1,9 +1,8 @@
-import 'package:flavio/login_screens/business_manager_login.dart';
+import 'package:flavio/login_screens/sub_zonal_login.dart';
+import 'package:flavio/login_screens/zonal_manager_login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-
-import 'login_screens/regionalLogin.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -29,12 +28,12 @@ class _MainScreenState extends State<MainScreen> {
                 Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (builder) => BussinessManagerLogin(
-                              bussines: "Business Manager",
+                        builder: (builder) => ZonalManagerLogin(
+                              bussines: "Zone Manager",
                             )));
               },
               leading: Icon(Icons.business),
-              title: Text("Bussiness Manager "),
+              title: Text("Zonals Manager "),
               trailing: Icon(Icons.arrow_forward_ios),
             ),
           ),
@@ -44,12 +43,12 @@ class _MainScreenState extends State<MainScreen> {
                 Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (builder) => RegionalLogin(
-                              regional: "Regional",
+                        builder: (builder) => SubZoneLogin(
+                              r: "Sub Zone Manager",
                             )));
               },
               leading: Icon(Icons.recycling_outlined),
-              title: Text("Regional Sales Manager "),
+              title: Text("Sub Zonal Sales Manager "),
               trailing: Icon(Icons.arrow_forward_ios),
             ),
           ),
