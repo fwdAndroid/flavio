@@ -18,7 +18,8 @@ class _ActiveRetailerOrdersState extends State<ActiveRetailerOrders> {
       body: StreamBuilder(
         stream: FirebaseFirestore.instance
             .collection("orders")
-            .where("uid", isEqualTo: FirebaseAuth.instance.currentUser!.uid)
+            .where("zonalsubuid",
+                isEqualTo: FirebaseAuth.instance.currentUser!.uid)
             .where("Status", isEqualTo: "Active")
             .snapshots(),
         builder: (context,
@@ -43,13 +44,13 @@ class _ActiveRetailerOrdersState extends State<ActiveRetailerOrders> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
-                              'Distributor Name:',
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            Text(snap['Distributor Manager Name']),
+                            // Text(
+                            //   'Zonal Manager Name:',
+                            //   style: TextStyle(
+                            //       color: Colors.black,
+                            //       fontWeight: FontWeight.bold),
+                            // ),
+                            // Text(snap['ZName']),
                             Divider(),
                             Text(
                               'Product Name: ',
@@ -57,7 +58,7 @@ class _ActiveRetailerOrdersState extends State<ActiveRetailerOrders> {
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
-                            Text(snap['productName']),
+                            Text(snap['itemName']),
                             Divider(),
                             Text(
                               'Area: ',
@@ -65,7 +66,7 @@ class _ActiveRetailerOrdersState extends State<ActiveRetailerOrders> {
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
-                            Text(snap['Distributor Area']),
+                            Text(snap['zonalarea']),
                           ],
                         ),
                       ),

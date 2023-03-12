@@ -38,16 +38,16 @@ class OrderModel {
   ///Converting OBject into Json Object
   Map<String, dynamic> toJson() => {
         'uuid': uuid,
-        'itemQuantity': "itemQuantity",
-        "itemName": "itemName",
-        'SUBZONEName': "SUBZONEName",
-        "itemPrice": "itemPrice",
-        "Status": "Status",
-        "zonesubarea": "zonesubarea",
-        "zonalarea": "zonalarea",
-        "ZName": "ZName",
-        "zonalsubuid": "zonalsubuid",
-        "zonaluid": "zonaluid"
+        'itemQuantity': itemQuantity,
+        "itemName": itemName,
+        'SUBZONEName': SUBZONEName,
+        "itemPrice": itemPrice,
+        "Status": Status,
+        "zonesubarea": zonesubarea,
+        "zonalarea": zonalarea,
+        "ZName": ZName,
+        "zonalsubuid": zonalsubuid,
+        "zonaluid": zonaluid
       };
 
   ///

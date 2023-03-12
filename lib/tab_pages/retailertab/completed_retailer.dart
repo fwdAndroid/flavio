@@ -19,7 +19,8 @@ class _CompletedRetailersOrdersState extends State<CompletedRetailersOrders> {
       body: StreamBuilder(
         stream: FirebaseFirestore.instance
             .collection("orders")
-            .where("uid", isEqualTo: FirebaseAuth.instance.currentUser!.uid)
+            .where("zonalsubuid",
+                isEqualTo: FirebaseAuth.instance.currentUser!.uid)
             .where("Status", isEqualTo: "Complete")
             .snapshots(),
         builder: (context,
@@ -57,13 +58,13 @@ class _CompletedRetailersOrdersState extends State<CompletedRetailersOrders> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
-                              'Distributor Name:',
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            Text(snap['Distributor Manager Name']),
+                            // Text(
+                            //   'Zonal Manager Name:',
+                            //   style: TextStyle(
+                            //       color: Colors.black,
+                            //       fontWeight: FontWeight.bold),
+                            // ),
+                            // Text(snap['ZName']),
                             Divider(),
                             Text(
                               'Product Name: ',
@@ -71,7 +72,7 @@ class _CompletedRetailersOrdersState extends State<CompletedRetailersOrders> {
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
-                            Text(snap['productName']),
+                            Text(snap['itemName']),
                             Divider(),
                             Text(
                               'Area: ',
@@ -79,7 +80,7 @@ class _CompletedRetailersOrdersState extends State<CompletedRetailersOrders> {
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
-                            Text(snap['Distributor Area']),
+                            Text(snap['zonalarea']),
                           ],
                         ),
                       ),

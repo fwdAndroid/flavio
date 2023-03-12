@@ -33,7 +33,7 @@ class Database {
         ZName: ZoneName,
         zonalarea: zonearea,
         zonesubarea: subzonearea,
-        zonalsubuid: subzoneuid,
+        zonalsubuid: FirebaseAuth.instance.currentUser!.uid,
         uuid: uuid,
 
         //Auth
