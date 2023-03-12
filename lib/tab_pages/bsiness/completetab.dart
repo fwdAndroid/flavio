@@ -18,7 +18,7 @@ class _CompleteState extends State<Complete> {
       body: StreamBuilder(
         stream: FirebaseFirestore.instance
             .collection("orders")
-            .where("businessuid",
+            .where("zonaluid",
                 isEqualTo: FirebaseAuth.instance.currentUser!.uid)
             .where("Status", isEqualTo: "Complete")
             .snapshots(),
@@ -45,12 +45,12 @@ class _CompleteState extends State<Complete> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Business Manager Name:',
+                              'Zonal Manager Name:',
                               style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
-                            Text(snap['Business Manager Name']),
+                            Text(snap['ZName']),
                             Divider(),
                             Text(
                               'Product Name: ',
@@ -58,7 +58,7 @@ class _CompleteState extends State<Complete> {
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
-                            Text(snap['productName']),
+                            Text(snap['itemName']),
                             // Divider(),
                             // Text(
                             //   'Pcs: ',
@@ -74,7 +74,7 @@ class _CompleteState extends State<Complete> {
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
-                            Text(snap['Business Area']),
+                            Text(snap['zonalarea']),
                           ],
                         ),
                       ),

@@ -1,8 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flavio/status/blockuser.dart';
 import 'package:flavio/widgets/text_form_field_widget.dart';
 import 'package:flavio/widgets/utils.dart';
+import 'package:flavio/zonals/main_zonal_page.dart';
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
@@ -149,11 +151,11 @@ class _ZonalManagerLoginState extends State<ZonalManagerLogin> {
     final isBlocked = data['blocked'];
     if (isBlocked == true) {
       // User is blocked
-      // Navigator.push(
-      //     context, MaterialPageRoute(builder: (builder) => BlockUser()));
+      Navigator.push(
+          context, MaterialPageRoute(builder: (builder) => BlockUser()));
     } else {
-      // Navigator.push(
-      //     context, MaterialPageRoute(builder: (builder) => MainBusinessPage()));
+      Navigator.push(
+          context, MaterialPageRoute(builder: (builder) => MainZonalPage()));
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text("Login Complete")));
     }

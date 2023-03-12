@@ -18,7 +18,7 @@ class _ActiveState extends State<Active> {
       body: StreamBuilder(
         stream: FirebaseFirestore.instance
             .collection("orders")
-            .where("businessuid",
+            .where("zonaluid",
                 isEqualTo: FirebaseAuth.instance.currentUser!.uid)
             .where("Status", isEqualTo: "Active")
             .snapshots(),
@@ -45,12 +45,12 @@ class _ActiveState extends State<Active> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Business Manager Name:',
+                              'Zonal Manager Name:',
                               style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
-                            Text(snap['Business Manager Name']),
+                            Text(snap['ZName']),
                             Divider(),
                             Text(
                               'Product Name: ',
@@ -58,7 +58,7 @@ class _ActiveState extends State<Active> {
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
-                            Text(snap['productName']),
+                            Text(snap['itemName']),
                             // Divider(),
                             // Text(
                             //   'Pcs: ',
@@ -69,12 +69,12 @@ class _ActiveState extends State<Active> {
                             // Text(snap['PCS']),
                             Divider(),
                             Text(
-                              'Business Area: ',
+                              'Zone Area: ',
                               style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
-                            Text(snap['Business Area']),
+                            Text(snap['zonalarea']),
                           ],
                         ),
                       ),
