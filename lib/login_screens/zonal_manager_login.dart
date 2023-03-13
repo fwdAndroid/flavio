@@ -168,6 +168,7 @@ class _ZonalManagerLoginState extends State<ZonalManagerLogin> {
           .get()
           .then((QuerySnapshot snapshot) {
         print("sad");
+        print(widget.bussines);
         snapshot.docs.forEach((element) {
           if (element['password'] == passController.text &&
               element['email'] == emailController.text &&
