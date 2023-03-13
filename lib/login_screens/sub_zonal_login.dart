@@ -47,7 +47,7 @@ class _SubZoneLoginState extends State<SubZoneLogin> {
               height: 200,
             ),
             Text(
-              "Retailer Officer Login",
+              "Sub Zone Officer Login",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
             ),
             SizedBox(
