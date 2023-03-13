@@ -128,6 +128,7 @@ class _BusinessReviewState extends State<BusinessReview> {
                                 .collection("orders")
                                 .doc(widget.uuid)
                                 .update({
+                              "ZName": snap['name'],
                               "zonaluid": FirebaseAuth.instance.currentUser!.uid
                             });
                             Customdialog().showInSnackBar(
