@@ -27,7 +27,7 @@ class _ViewOrderPageState extends State<ViewOrderPage> {
           stream: FirebaseFirestore.instance
               .collection("orders")
               .where("Status", isEqualTo: "Active")
-              .where("ZName", isEqualTo: widget.name)
+              .where("zonalarea", isEqualTo: widget.area)
               .snapshots(),
           builder: (context, AsyncSnapshot snapshot) {
             if (snapshot.hasError) {
@@ -45,10 +45,10 @@ class _ViewOrderPageState extends State<ViewOrderPage> {
                     title: Row(
                       children: [
                         Text(
-                          "Zonal Manager Name:",
+                          "Sub Zonal Manager  Name:",
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
-                        Expanded(child: Text(snap['ZName'])),
+                        Expanded(child: Text(snap['SUBZONEName'].toString())),
                       ],
                     ),
                     subtitle: Row(

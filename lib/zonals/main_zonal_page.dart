@@ -46,7 +46,7 @@ class _MainZonalPageState extends State<MainZonalPage> {
                       color: Colors.white, fontWeight: FontWeight.bold),
                 ))
           ],
-          title: Text("Business Manager Page"),
+          title: Text("Zonal Manager Page"),
           backgroundColor: Colors.purple,
         ),
         body: StreamBuilder(
