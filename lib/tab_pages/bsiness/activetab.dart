@@ -20,7 +20,7 @@ class _ActiveState extends State<Active> {
             .collection("orders")
             .where("zonaluid",
                 isEqualTo: FirebaseAuth.instance.currentUser!.uid)
-            .where("Status", isEqualTo: "Active")
+            .where("Status", isEqualTo: "Proceed")
             .snapshots(),
         builder: (context,
             AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
