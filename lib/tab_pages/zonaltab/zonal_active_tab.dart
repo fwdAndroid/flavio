@@ -48,12 +48,12 @@ class _ZonalActiveTabState extends State<ZonalActiveTab> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Reigional Manager Name:',
+                              'Sub Zone Manager Name:',
                               style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
-                            Text(snap['Regional Manager Name']),
+                            Text(snap['SUBZONEName']),
                             Divider(),
                             Text(
                               'Product Name: ',
@@ -61,7 +61,7 @@ class _ZonalActiveTabState extends State<ZonalActiveTab> {
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
-                            Text(snap['productName']),
+                            Text(snap['itemName']),
                             // Divider(),
                             // Text(
                             //   'Pcs: ',
@@ -72,12 +72,12 @@ class _ZonalActiveTabState extends State<ZonalActiveTab> {
                             // Text(snap['PCS']),
                             Divider(),
                             Text(
-                              'Regional Manager Area: ',
+                              'Sub Zone Manager Area: ',
                               style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
-                            Text(snap['Regional Area']),
+                            Text(snap['zonesubarea']),
                           ],
                         ),
                       ),

@@ -58,12 +58,12 @@ class _ZonalCompleteTabState extends State<ZonalCompleteTab> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Regional Manager Name:',
+                              'Sub Zone Manager Name:',
                               style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
-                            Text(snap['Regional Manager Name']),
+                            Text(snap['SUBZONEName']),
                             Divider(),
                             Text(
                               'Product Name: ',
@@ -71,7 +71,7 @@ class _ZonalCompleteTabState extends State<ZonalCompleteTab> {
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
-                            Text(snap['productName']),
+                            Text(snap['itemName']),
                             // Divider(),
                             // Text(
                             //   'Pcs: ',
@@ -82,12 +82,12 @@ class _ZonalCompleteTabState extends State<ZonalCompleteTab> {
                             // Text(snap['PCS']),
                             Divider(),
                             Text(
-                              'Regional Area:',
+                              'Sub Zone Manager Area: ',
                               style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
-                            Text(snap['Regional Area']),
+                            Text(snap['zonesubarea']),
                           ],
                         ),
                       ),
