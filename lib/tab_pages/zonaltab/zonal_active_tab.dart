@@ -21,7 +21,7 @@ class _ZonalActiveTabState extends State<ZonalActiveTab> {
       body: StreamBuilder(
         stream: FirebaseFirestore.instance
             .collection("orders")
-            .where("Status", isEqualTo: "Active")
+            .where("Status", isEqualTo: "Proceed")
             .where("zonaluid",
                 isEqualTo: FirebaseAuth.instance.currentUser!.uid)
             .snapshots(),

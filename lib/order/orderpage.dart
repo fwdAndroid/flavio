@@ -161,6 +161,7 @@ class _OrderPageState extends State<OrderPage> {
                             subzonearea: widget.area,
                             itemPrice: widget.itemPrice,
                             SubZoneName: widget.name,
+                            ZoneName: values,
                             Status: "Active",
                             itemName: widget.itemName,
                             itemQuantity: widget.itemQuatity,
