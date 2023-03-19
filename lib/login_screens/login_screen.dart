@@ -55,7 +55,7 @@ class _LoginState extends State<Login> {
                 height: 200,
               ),
               Text(
-                "Zonal Manager Login",
+                "Login Platform",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
               ),
               SizedBox(

@@ -1,4 +1,5 @@
 import 'package:flavio/database/db.dart';
+import 'package:flavio/main_pages/main_sub_zonal_page.dart';
 import 'package:flavio/widgets/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -132,10 +133,17 @@ class _OrderProcesState extends State<OrderProces> {
                   ZoneName: widget.zonalManagerName,
                   Status: "Active",
                   itemName: widget.itemName,
-                  itemQuantity: widget.itemQuatity,
+                  itemQuantity: int.parse(_pcsControleler.text),
                 );
 
-                Customdialog().showInSnackBar("Database Added", context);
+                Customdialog().showInSnackBar("Order is Placed", context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (builder) => MainSubZonelPage(
+                              area: widget.area,
+                              name: widget.name,
+                            )));
               }
             },
             child: Text("Place Order"),

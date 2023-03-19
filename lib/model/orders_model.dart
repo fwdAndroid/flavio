@@ -51,7 +51,7 @@ class OrderModel {
         "zonesubarea": zonesubarea,
         "zonalarea": zonalarea,
         "ZName": ZName,
-        "itemCost": "itemCost",
+        "itemCost": itemCost,
         'dateTime': DateTime.now().millisecondsSinceEpoch.toString(),
         "zonalsubuid": zonalsubuid,
         "zonaluid": zonaluid
