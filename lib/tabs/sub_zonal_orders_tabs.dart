@@ -1,3 +1,5 @@
+import 'package:flavio/tab_pages/bsiness/activetab.dart';
+import 'package:flavio/tab_pages/bsiness/completetab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -40,10 +42,7 @@ class _SubZonalOrderTabState extends State<SubZonalOrderTab> {
             ),
           ),
           body: TabBarView(
-            children: <Widget>[
-              // ActiveRetailerOrders(),
-              // CompletedRetailersOrders()
-            ],
+            children: <Widget>[Active(), Complete()],
           ),
         ),
       ),

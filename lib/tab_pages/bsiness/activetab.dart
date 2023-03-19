@@ -18,9 +18,9 @@ class _ActiveState extends State<Active> {
       body: StreamBuilder(
         stream: FirebaseFirestore.instance
             .collection("orders")
-            .where("zonaluid",
+            .where("zonalsubuid",
                 isEqualTo: FirebaseAuth.instance.currentUser!.uid)
-            .where("Status", isEqualTo: "Proceed")
+            .where("Status", isEqualTo: "Pending")
             .snapshots(),
         builder: (context,
             AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {

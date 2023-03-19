@@ -155,7 +155,7 @@ class _LoginState extends State<Login> {
       // User is blocked
       Navigator.push(
           context, MaterialPageRoute(builder: (builder) => BlockUser()));
-    } else if (data['type'] == "Zonal Manager") {
+    } else if (data['type'] == "Zone Manager") {
       Navigator.push(
           context, MaterialPageRoute(builder: (builder) => MainZonalPage()));
       ScaffoldMessenger.of(context)
