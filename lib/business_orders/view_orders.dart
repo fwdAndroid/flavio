@@ -31,9 +31,18 @@ class _ViewOrderPageState extends State<ViewOrderPage> {
               .snapshots(),
           builder: (context, AsyncSnapshot snapshot) {
             if (snapshot.hasError) {
-              Center(child: Text("No Thing Found"));
-            } else if (!snapshot.hasData) {
-              Center(child: Text("No Thing Found Data"));
+              return Text('Something went wrong');
+            }
+
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Text("Loading");
+            }
+
+            if (snapshot.hasError) {
+              return Text('Something went wrong');
+            }
+            if (snapshot.hasData) {
+              Text("sadd");
             }
             return ListView.builder(
                 itemCount: snapshot.data!.docs.length,

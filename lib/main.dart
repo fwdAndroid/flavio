@@ -1,7 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flavio/mains_screen.dart';
+import 'package:flavio/login_screens/zonal_manager_login.dart';
 import 'package:flavio/provider/circular_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: AnimatedSplashScreen(
-        nextScreen: MainScreen(),
+        nextScreen: ZonalManagerLogin(),
         splash: Image.asset(
           'assets/splash.png',
           fit: BoxFit.cover,

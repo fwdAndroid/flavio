@@ -10,8 +10,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class ZonalManagerLogin extends StatefulWidget {
-  String bussines;
-  ZonalManagerLogin({Key? key, required this.bussines}) : super(key: key);
+  ZonalManagerLogin({
+    Key? key,
+  }) : super(key: key);
 
   @override
   _ZonalManagerLoginState createState() => _ZonalManagerLoginState();
@@ -168,11 +169,10 @@ class _ZonalManagerLoginState extends State<ZonalManagerLogin> {
           .get()
           .then((QuerySnapshot snapshot) {
         print("sad");
-        print(widget.bussines);
         snapshot.docs.forEach((element) {
           if (element['password'] == passController.text &&
               element['email'] == emailController.text &&
-              element['type'] == widget.bussines) {
+              element['type'] == "widget.bussines") {
             FirebaseAuth.instance
                 .signInWithEmailAndPassword(
               email: emailController.text,

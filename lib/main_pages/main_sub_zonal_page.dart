@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flavio/mains_screen.dart';
 import 'package:flavio/order/product_detail.dart';
 import 'package:flavio/tabs/sub_zonal_orders_tabs.dart';
 import 'package:flutter/material.dart';
@@ -43,13 +42,13 @@ class _MainSubZonelPageState extends State<MainSubZonelPage> {
                     )),
                 TextButton(
                     onPressed: () async {
-                      FirebaseAuth.instance.signOut().then((value) => {
-                            Navigator.pushAndRemoveUntil(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (builder) => MainScreen()),
-                                (route) => false)
-                          });
+                      // FirebaseAuth.instance.signOut().then((value) => {
+                      //       Navigator.pushAndRemoveUntil(
+                      //           context,
+                      //           MaterialPageRoute(
+                      //               builder: (builder) => MainScreen()),
+                      //           (route) => false)
+                      //     });
                     },
                     child: Text(
                       "Log Out",

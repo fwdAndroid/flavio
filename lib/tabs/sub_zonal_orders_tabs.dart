@@ -1,5 +1,3 @@
-import 'package:flavio/tab_pages/retailertab/active_retailers.dart';
-import 'package:flavio/tab_pages/retailertab/completed_retailer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -43,8 +41,8 @@ class _SubZonalOrderTabState extends State<SubZonalOrderTab> {
           ),
           body: TabBarView(
             children: <Widget>[
-              ActiveRetailerOrders(),
-              CompletedRetailersOrders()
+              // ActiveRetailerOrders(),
+              // CompletedRetailersOrders()
             ],
           ),
         ),
