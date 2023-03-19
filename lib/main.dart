@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: AnimatedSplashScreen(
-        nextScreen: ZonalManagerLogin(),
+        nextScreen: Login(),
         splash: Image.asset(
           'assets/splash.png',
           fit: BoxFit.cover,

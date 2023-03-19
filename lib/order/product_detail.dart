@@ -6,13 +6,14 @@ import 'package:flutter/src/widgets/framework.dart';
 class ProductDetail extends StatefulWidget {
   final String itemName, uuid;
   final area, name;
-  final int itemPrice, itemQuatity;
+  final int itemPrice, itemQuatity, itemCost;
   const ProductDetail({
     super.key,
     required this.name,
     required this.area,
     required this.itemName,
     required this.itemPrice,
+    required this.itemCost,
     required this.itemQuatity,
     required this.uuid,
   });
@@ -81,7 +82,7 @@ class _ProductDetailState extends State<ProductDetail> {
                     //   height: 10,
                     // ),
                     Text(
-                      'Product Rate:' + widget.itemPrice.toString(),
+                      'Product Price:' + widget.itemCost.toString(),
                       style: TextStyle(color: Colors.black, fontSize: 17),
                     )
                   ],
@@ -104,6 +105,7 @@ class _ProductDetailState extends State<ProductDetail> {
                             name: widget.name,
                             uuid: widget.uuid,
                             itemName: widget.itemName,
+                            itemCost: widget.itemCost,
                             // pcs: widget.pcs,
                             itemPrice: widget.itemPrice,
                             itemQuatity: widget.itemQuatity,

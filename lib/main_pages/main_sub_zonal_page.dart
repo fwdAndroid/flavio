@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flavio/login_screens/login_screen.dart';
 import 'package:flavio/order/product_detail.dart';
 import 'package:flavio/tabs/sub_zonal_orders_tabs.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +24,7 @@ class _MainSubZonelPageState extends State<MainSubZonelPage> {
         ? Center(child: CircularProgressIndicator())
         : Scaffold(
             appBar: AppBar(
+              automaticallyImplyLeading: false,
               title: Text(
                 "Sub Zonal App",
                 style:
@@ -42,13 +44,13 @@ class _MainSubZonelPageState extends State<MainSubZonelPage> {
                     )),
                 TextButton(
                     onPressed: () async {
-                      // FirebaseAuth.instance.signOut().then((value) => {
-                      //       Navigator.pushAndRemoveUntil(
-                      //           context,
-                      //           MaterialPageRoute(
-                      //               builder: (builder) => MainScreen()),
-                      //           (route) => false)
-                      //     });
+                      FirebaseAuth.instance.signOut().then((value) => {
+                            Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (builder) => Login()),
+                                (route) => false)
+                          });
                     },
                     child: Text(
                       "Log Out",
@@ -91,6 +93,7 @@ class _MainSubZonelPageState extends State<MainSubZonelPage> {
                                                 area: widget.area,
                                                 name: widget.name,
                                                 uuid: snap['uuid'],
+                                                itemCost: snap['itemCost'],
                                                 itemName: snap['ItemName'],
                                                 itemPrice: snap['itemPrice'],
                                                 // pcs: snap['pcs'],

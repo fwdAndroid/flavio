@@ -10,16 +10,16 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
-class ZonalManagerLogin extends StatefulWidget {
-  ZonalManagerLogin({
+class Login extends StatefulWidget {
+  Login({
     Key? key,
   }) : super(key: key);
 
   @override
-  _ZonalManagerLoginState createState() => _ZonalManagerLoginState();
+  _LoginState createState() => _LoginState();
 }
 
-class _ZonalManagerLoginState extends State<ZonalManagerLogin> {
+class _LoginState extends State<Login> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passController = TextEditingController();
   bool _isLoading = false;
@@ -170,6 +170,9 @@ class _ZonalManagerLoginState extends State<ZonalManagerLogin> {
                   )));
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text("Login Complete")));
+    } else {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text("No User Found")));
     }
   }
 

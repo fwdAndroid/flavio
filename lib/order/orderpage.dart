@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flavio/database/db.dart';
 import 'package:flavio/main_pages/main_sub_zonal_page.dart';
+import 'package:flavio/order/order_process.dart';
 import 'package:flavio/widgets/utils.dart';
 import 'package:flutter/material.dart';
 
@@ -8,9 +9,10 @@ class OrderPage extends StatefulWidget {
   final String itemName, uuid;
   final area;
   final name;
-  final int itemPrice, itemQuatity;
+  final int itemPrice, itemQuatity, itemCost;
   const OrderPage(
       {super.key,
+      required this.itemCost,
       required this.name,
       required this.itemQuatity,
       required this.area,
@@ -65,8 +67,9 @@ class _OrderPageState extends State<OrderPage> {
                                 fontWeight: FontWeight.w700, fontSize: 17),
                           )),
                       Container(
-                          margin: EdgeInsets.only(left: 15, right: 15, top: 15),
+                          margin: EdgeInsets.only(left: 15, right: 15, top: 5),
                           child: DropdownButton(
+                            hint: Text("Please Select Zonal Manager"),
                             isExpanded: true,
                             value: values,
                             items: snapshot.data!.docs.map((value) {
@@ -93,31 +96,49 @@ class _OrderPageState extends State<OrderPage> {
                       Container(
                           margin: EdgeInsets.only(left: 15, right: 15, top: 15),
                           child: Text(
-                            "Item Name",
+                            "Product Name",
                             style: TextStyle(
                                 fontWeight: FontWeight.w700, fontSize: 17),
                           )),
                       Container(
-                          margin: EdgeInsets.only(left: 15, right: 15, top: 2),
+                          margin: EdgeInsets.only(left: 15, right: 15, top: 5),
                           child: Text(
                             widget.itemName,
                             style: TextStyle(
                                 fontWeight: FontWeight.w700, fontSize: 17),
                           )),
+                      Divider(),
                       Container(
-                          margin: EdgeInsets.only(left: 15, right: 15, top: 14),
+                          margin: EdgeInsets.only(left: 15, right: 15, top: 15),
                           child: Text(
-                            "Item Quantity",
+                            "Total Quantity",
                             style: TextStyle(
                                 fontWeight: FontWeight.w700, fontSize: 17),
                           )),
                       Container(
-                          margin: EdgeInsets.only(left: 15, right: 15, top: 2),
+                          margin: EdgeInsets.only(left: 15, right: 15, top: 5),
                           child: Text(
                             widget.itemQuatity.toString(),
                             style: TextStyle(
                                 fontWeight: FontWeight.w700, fontSize: 17),
                           )),
+                      Divider(),
+                      Container(
+                          margin: EdgeInsets.only(left: 15, right: 15, top: 15),
+                          child: Text(
+                            "Cost Per Quantity",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w700, fontSize: 17),
+                          )),
+                      Container(
+                          margin: EdgeInsets.only(left: 15, right: 15, top: 5),
+                          child: Text(
+                            widget.itemPrice.toString(),
+                            style: TextStyle(
+                                fontWeight: FontWeight.w700, fontSize: 17),
+                          )),
+                      Divider(),
+
                       // Container(
                       //     margin: EdgeInsets.only(left: 15, right: 15, top: 20),
                       //     child: Text(
@@ -139,14 +160,14 @@ class _OrderPageState extends State<OrderPage> {
                       Container(
                           margin: EdgeInsets.only(left: 15, right: 15, top: 4),
                           child: Text(
-                            "Rate",
+                            "Total Quantity Cost",
                             style: TextStyle(
                                 fontWeight: FontWeight.w700, fontSize: 17),
                           )),
                       Container(
                           margin: EdgeInsets.only(left: 15, right: 15, top: 2),
                           child: Text(
-                            widget.itemPrice.toString(),
+                            widget.itemCost.toString(),
                             style: TextStyle(
                                 fontWeight: FontWeight.w700, fontSize: 17),
                           )),
@@ -156,26 +177,23 @@ class _OrderPageState extends State<OrderPage> {
                       Center(
                           child: ElevatedButton(
                         onPressed: () async {
-                          await Database().addOrder(
-                            zonearea: widget.area,
-                            subzonearea: widget.area,
-                            itemPrice: widget.itemPrice,
-                            SubZoneName: widget.name,
-                            ZoneName: values,
-                            Status: "Active",
-                            itemName: widget.itemName,
-                            itemQuantity: widget.itemQuatity,
-                          );
+                          // await Database().addOrder(
+                          //   zonearea: widget.area,
+                          //   subzonearea: widget.area,
+                          //   itemPrice: widget.itemPrice,
+                          //   SubZoneName: widget.name,
+                          //   ZoneName: values,
+                          //   Status: "Active",
+                          //   itemName: widget.itemName,
+                          //   itemQuantity: widget.itemQuatity,
+                          // );
 
-                          Customdialog()
-                              .showInSnackBar("Database Added", context);
-                          Navigator.pushReplacement(
+                          // Customdialog()
+                          //     .showInSnackBar("Database Added", context);
+                          Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (builder) => MainSubZonelPage(
-                                        area: widget.area,
-                                        name: widget.name,
-                                      )));
+                                  builder: (builder) => OrderProces()));
                         },
                         child: Text("Place Order"),
                         style: ElevatedButton.styleFrom(
