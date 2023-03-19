@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flavio/invoice/sub_zone_invoice.dart';
 import 'package:flavio/login_screens/login_screen.dart';
 import 'package:flavio/order/product_detail.dart';
 import 'package:flavio/tabs/sub_zonal_orders_tabs.dart';
@@ -26,7 +27,7 @@ class _MainSubZonelPageState extends State<MainSubZonelPage> {
             appBar: AppBar(
               automaticallyImplyLeading: false,
               title: Text(
-                "Sub Zonal App",
+                "Sub Zonal",
                 style:
                     TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               ),
@@ -36,10 +37,10 @@ class _MainSubZonelPageState extends State<MainSubZonelPage> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (builder) => SubZonalOrderTab()));
+                              builder: (builder) => SubZoneInvoice()));
                     },
                     child: Text(
-                      "History",
+                      "Invoices",
                       style: TextStyle(color: Colors.white),
                     )),
                 TextButton(

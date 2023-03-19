@@ -131,7 +131,7 @@ class _OrderProcesState extends State<OrderProces> {
                   itemPrice: widget.itemPrice,
                   SubZoneName: widget.name,
                   ZoneName: widget.zonalManagerName,
-                  Status: "Active",
+                  Status: "Pending",
                   itemName: widget.itemName,
                   itemQuantity: int.parse(_pcsControleler.text),
                 );
