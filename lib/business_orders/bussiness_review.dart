@@ -11,11 +11,13 @@ class BusinessReview extends StatefulWidget {
   final itemQuanitity;
   final uuid;
   final subzonearea;
+  final itemCost;
   final itemPrice;
 
   const BusinessReview(
       {super.key,
       required this.itemPrice,
+      required this.itemCost,
       required this.uuid,
       required this.subzonearea,
       required this.itemQuanitity,
@@ -107,7 +109,7 @@ class _BusinessReviewState extends State<BusinessReview> {
                       Container(
                           margin: EdgeInsets.only(left: 15, right: 15, top: 15),
                           child: Text(
-                            "Item Name",
+                            "Product Name",
                             style: TextStyle(
                                 fontWeight: FontWeight.w700, fontSize: 17),
                           )),
@@ -118,35 +120,97 @@ class _BusinessReviewState extends State<BusinessReview> {
                             style: TextStyle(
                                 fontWeight: FontWeight.w700, fontSize: 17),
                           )),
+                      Divider(),
+                      Container(
+                          margin: EdgeInsets.only(left: 15, right: 15, top: 15),
+                          child: Text(
+                            "Product Quantity",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w700, fontSize: 17),
+                          )),
+                      Container(
+                          margin: EdgeInsets.only(left: 15, right: 15, top: 2),
+                          child: Text(
+                            widget.itemQuanitity.toString(),
+                            style: TextStyle(
+                                fontWeight: FontWeight.w700, fontSize: 17),
+                          )),
+                      Divider(),
+                      Container(
+                          margin: EdgeInsets.only(left: 15, right: 15, top: 15),
+                          child: Text(
+                            "Product Price",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w700, fontSize: 17),
+                          )),
+                      Container(
+                          margin: EdgeInsets.only(left: 15, right: 15, top: 2),
+                          child: Text(
+                            widget.itemCost.toString(),
+                            style: TextStyle(
+                                fontWeight: FontWeight.w700, fontSize: 17),
+                          )),
                       SizedBox(
                         height: 20,
                       ),
-                      Center(
-                        child: ElevatedButton(
-                          onPressed: () async {
-                            await FirebaseFirestore.instance
-                                .collection("orders")
-                                .doc(widget.uuid)
-                                .update({
-                              "Status": "Proceed",
-                              "ZName": snap['name'],
-                              "zonaluid": FirebaseAuth.instance.currentUser!.uid
-                            });
-                            Customdialog().showInSnackBar(
-                                "Order is Review by Me and I sent it to admin panel",
-                                context);
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (builder) => MainZonalPage()));
-                          },
-                          child: Text('Proceed'),
-                          style: ElevatedButton.styleFrom(
-                              fixedSize: Size(200, 50),
-                              backgroundColor: Colors.purple,
-                              shape: StadiumBorder()),
-                        ),
-                      )
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          IconButton(
+                            onPressed: () async {
+                              await FirebaseFirestore.instance
+                                  .collection("orders")
+                                  .doc(widget.uuid)
+                                  .update({
+                                "Status": "Proceed",
+                                "ZName": snap['name'],
+                                "zonaluid":
+                                    FirebaseAuth.instance.currentUser!.uid
+                              });
+                              Customdialog().showInSnackBar(
+                                  "Order is Review by Me and I sent it to admin panel",
+                                  context);
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (builder) => MainZonalPage()));
+                            },
+                            icon: Icon(
+                              Icons.check,
+                              color: Colors.green,
+                              size: 40,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 40,
+                          ),
+                          IconButton(
+                            onPressed: () async {
+                              await FirebaseFirestore.instance
+                                  .collection("orders")
+                                  .doc(widget.uuid)
+                                  .update({
+                                "Status": "Cancel",
+                                "ZName": snap['name'],
+                                "zonaluid":
+                                    FirebaseAuth.instance.currentUser!.uid
+                              });
+                              Customdialog().showInSnackBar(
+                                  "Order is Review by Me and I cancel is because stock is not available",
+                                  context);
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (builder) => MainZonalPage()));
+                            },
+                            icon: Icon(
+                              Icons.cancel,
+                              color: Colors.red,
+                              size: 40,
+                            ),
+                          ),
+                        ],
+                      ),
                     ],
                   );
                 });

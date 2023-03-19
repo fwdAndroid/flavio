@@ -69,7 +69,7 @@ class _BussinsssOrderDetailState extends State<BussinsssOrderDetail> {
                                 margin: EdgeInsets.only(
                                     left: 15, right: 15, top: 15),
                                 child: Text(
-                                  "Item Name",
+                                  "Product Name",
                                   style: TextStyle(
                                       fontWeight: FontWeight.w700,
                                       fontSize: 17),
@@ -122,6 +122,43 @@ class _BussinsssOrderDetailState extends State<BussinsssOrderDetail> {
                                       fontSize: 17),
                                 )),
                             Divider(),
+                            Container(
+                                margin: EdgeInsets.only(
+                                    left: 15, right: 15, top: 15),
+                                child: Text(
+                                  "Product Quantity",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 17),
+                                )),
+                            Container(
+                                margin: EdgeInsets.only(
+                                    left: 15, right: 15, top: 2),
+                                child: Text(
+                                  snap['itemQuantity'].toString(),
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 17),
+                                )),
+                            Divider(),
+                            Container(
+                                margin: EdgeInsets.only(
+                                    left: 15, right: 15, top: 15),
+                                child: Text(
+                                  "Product Price",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 17),
+                                )),
+                            Container(
+                                margin: EdgeInsets.only(
+                                    left: 15, right: 15, top: 2),
+                                child: Text(
+                                  snap['itemCost'].toString(),
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 17),
+                                )),
                             SizedBox(
                               height: 20,
                             ),
@@ -132,6 +169,7 @@ class _BussinsssOrderDetailState extends State<BussinsssOrderDetail> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (builder) => BusinessReview(
+                                                itemCost: snap['itemCost'],
                                                 subzonearea:
                                                     snap['zonesubarea'],
                                                 itemName: snap['itemName'],

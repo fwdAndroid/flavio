@@ -26,7 +26,7 @@ class _ViewOrderPageState extends State<ViewOrderPage> {
       body: StreamBuilder(
           stream: FirebaseFirestore.instance
               .collection("orders")
-              .where("Status", isEqualTo: "Active")
+              .where("Status", isEqualTo: "Pending")
               .where("zonalarea", isEqualTo: widget.area)
               .snapshots(),
           builder: (context, AsyncSnapshot snapshot) {
