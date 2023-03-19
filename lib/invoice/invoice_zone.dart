@@ -1,17 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flavio/tabs/sub_zonal_orders_tabs.dart';
+import 'package:flavio/tabs/zonal_order_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class SubZoneInvoice extends StatefulWidget {
-  const SubZoneInvoice({super.key});
+class InvoiceZone extends StatefulWidget {
+  const InvoiceZone({super.key});
 
   @override
-  State<SubZoneInvoice> createState() => _SubZoneInvoiceState();
+  State<InvoiceZone> createState() => _InvoiceZoneState();
 }
 
-class _SubZoneInvoiceState extends State<SubZoneInvoice> {
+class _InvoiceZoneState extends State<InvoiceZone> {
   bool _isLoading = false;
 
   @override
@@ -26,7 +27,7 @@ class _SubZoneInvoiceState extends State<SubZoneInvoice> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (builder) => SubZonalOrderTab()));
+                              builder: (builder) => ZonalOrderTab()));
                     },
                     child: Text(
                       "Order History",
@@ -44,7 +45,7 @@ class _SubZoneInvoiceState extends State<SubZoneInvoice> {
             body: StreamBuilder(
                 stream: FirebaseFirestore.instance
                     .collection("orders")
-                    .where("zonalsubuid",
+                    .where("zonaluid",
                         isEqualTo: FirebaseAuth.instance.currentUser!.uid)
                     .snapshots(),
                 builder: (context, AsyncSnapshot snapshot) {
@@ -97,6 +98,29 @@ class _SubZoneInvoiceState extends State<SubZoneInvoice> {
                                                       Alignment.centerLeft,
                                                   child: Text(
                                                     snap['ZName'],
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        fontSize: 16),
+                                                  ),
+                                                ),
+                                                const SizedBox(height: 10),
+                                                const Align(
+                                                  alignment:
+                                                      Alignment.centerLeft,
+                                                  child: Text(
+                                                    "Sub Zonal Manager Name",
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.w700,
+                                                        fontSize: 16),
+                                                  ),
+                                                ),
+                                                Align(
+                                                  alignment:
+                                                      Alignment.centerLeft,
+                                                  child: Text(
+                                                    snap['SUBZONEName'],
                                                     style: TextStyle(
                                                         fontWeight:
                                                             FontWeight.w500,
