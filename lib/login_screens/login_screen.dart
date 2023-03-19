@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flavio/main_pages/main_sub_zonal_page.dart';
 import 'package:flavio/status/blockuser.dart';
 import 'package:flavio/widgets/text_form_field_widget.dart';
 import 'package:flavio/widgets/utils.dart';
@@ -154,9 +155,19 @@ class _ZonalManagerLoginState extends State<ZonalManagerLogin> {
       // User is blocked
       Navigator.push(
           context, MaterialPageRoute(builder: (builder) => BlockUser()));
-    } else {
+    } else if (data['type'] == "Zonal Manager") {
       Navigator.push(
           context, MaterialPageRoute(builder: (builder) => MainZonalPage()));
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text("Login Complete")));
+    } else if (data['type'] == "Sub Zone Manager") {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (builder) => MainSubZonelPage(
+                    area: data['area'],
+                    name: data['name'],
+                  )));
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text("Login Complete")));
     }
@@ -171,8 +182,7 @@ class _ZonalManagerLoginState extends State<ZonalManagerLogin> {
         print("sad");
         snapshot.docs.forEach((element) {
           if (element['password'] == passController.text &&
-              element['email'] == emailController.text &&
-              element['type'] == "widget.bussines") {
+              element['email'] == emailController.text) {
             FirebaseAuth.instance
                 .signInWithEmailAndPassword(
               email: emailController.text,
