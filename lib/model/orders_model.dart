@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class OrderModel {
+  final dateTime;
+
   String? uuid;
   //Areas
   String? zonesubarea;
@@ -17,6 +19,7 @@ class OrderModel {
   String itemName;
   int itemPrice;
   int itemQuantity;
+  int itemCost;
   //Auth ID
   String? zonalsubuid;
 
@@ -27,6 +30,8 @@ class OrderModel {
       required this.itemQuantity,
       required this.itemName,
       required this.itemPrice,
+      required this.itemCost,
+      required this.dateTime,
       this.uuid,
       this.Status,
       this.zonesubarea,
@@ -46,6 +51,8 @@ class OrderModel {
         "zonesubarea": zonesubarea,
         "zonalarea": zonalarea,
         "ZName": ZName,
+        "itemCost": "itemCost",
+        'dateTime': DateTime.now().millisecondsSinceEpoch.toString(),
         "zonalsubuid": zonalsubuid,
         "zonaluid": zonaluid
       };
@@ -57,12 +64,14 @@ class OrderModel {
     return OrderModel(
       zonaluid: snapshot['zonaluid'],
       zonalsubuid: snapshot['zonalsubuid'],
+      itemCost: snapshot['itemCost'],
       zonalarea: snapshot['Zonal Area'],
       zonesubarea: snapshot['Sub Zone Area'],
       Status: snapshot['Status'],
       itemQuantity: snapshot['itemQuantity'],
       itemPrice: snapshot['itemPrice'],
       itemName: snapshot['itemName'],
+      dateTime: snapshot['dateTime'],
       SUBZONEName: snapshot['Sub Zone Manager'],
       ZName: snapshot['Zonal Manager Name'],
     );

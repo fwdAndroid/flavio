@@ -26,7 +26,6 @@ class OrderPage extends StatefulWidget {
 }
 
 class _OrderPageState extends State<OrderPage> {
-  TextEditingController _pcsControleler = TextEditingController();
   var values;
 
   @override
@@ -138,25 +137,6 @@ class _OrderPageState extends State<OrderPage> {
                                 fontWeight: FontWeight.w700, fontSize: 17),
                           )),
                       Divider(),
-
-                      // Container(
-                      //     margin: EdgeInsets.only(left: 15, right: 15, top: 20),
-                      //     child: Text(
-                      //       "Number of Pcs",
-                      //       style: TextStyle(
-                      //           fontWeight: FontWeight.w700, fontSize: 17),
-                      //     )),
-                      // Container(
-                      //   margin: EdgeInsets.only(left: 15, right: 15, top: 4),
-                      //   child: TextFormField(
-                      //     controller: _pcsControleler,
-                      //     keyboardType: TextInputType.number,
-                      //     decoration: InputDecoration(
-                      //       hintText: widget.pcs,
-                      //       border: OutlineInputBorder(),
-                      //     ),
-                      //   ),
-                      // ),
                       Container(
                           margin: EdgeInsets.only(left: 15, right: 15, top: 4),
                           child: Text(
@@ -193,9 +173,18 @@ class _OrderPageState extends State<OrderPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (builder) => OrderProces()));
+                                  builder: (builder) => OrderProces(
+                                        area: widget.area,
+                                        name: widget.name,
+                                        zonalManagerName: values,
+                                        itemName: widget.itemName,
+                                        itemPrice: widget.itemPrice,
+                                        itemCost: widget.itemCost,
+                                        itemQuatity: widget.itemQuatity,
+                                        uuid: widget.uuid,
+                                      )));
                         },
-                        child: Text("Place Order"),
+                        child: Text("Proceed Order"),
                         style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.purple,
                             fixedSize: Size(250, 50),

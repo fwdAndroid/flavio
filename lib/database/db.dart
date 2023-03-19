@@ -12,6 +12,7 @@ class Database {
       required String SubZoneName,
       required int itemQuantity,
       required int itemPrice,
+      required int itemCost,
       String? ZoneName,
       String? zonaluid,
       String? Status,
@@ -24,20 +25,22 @@ class Database {
       var uuid = Uuid().v1();
 
       OrderModel userModel = OrderModel(
-        SUBZONEName: SubZoneName,
-        itemName: itemName,
-        itemPrice: itemPrice,
-        itemQuantity: itemQuantity,
-        Status: Status,
-        zonaluid: zonaluid,
-        ZName: ZoneName,
-        zonalarea: zonearea,
-        zonesubarea: subzonearea,
-        zonalsubuid: FirebaseAuth.instance.currentUser!.uid,
-        uuid: uuid,
+          dateTime: DateTime.now().millisecondsSinceEpoch.toString(),
+          SUBZONEName: SubZoneName,
+          itemName: itemName,
+          itemPrice: itemPrice,
+          itemQuantity: itemQuantity,
+          Status: Status,
+          zonaluid: zonaluid,
+          ZName: ZoneName,
+          zonalarea: zonearea,
+          zonesubarea: subzonearea,
+          zonalsubuid: FirebaseAuth.instance.currentUser!.uid,
+          uuid: uuid,
+          itemCost: itemCost
 
-        //Auth
-      );
+          //Auth
+          );
       await firebaseFirestore
           .collection('orders')
           .doc(uuid)
